@@ -8,9 +8,9 @@ import javax.swing.JOptionPane;
 public class ConexaoBD {
     
     private String driver = "com.mysql.jdbc.Driver";
-    private String str_com = "jdbc:mysql://localhost:3306/PDV";
+    private String str_com = "jdbc:mysql://localhost:3306/pdv";
     private String usuario = "root";
-    private String senha = "12345";
+    private String senha = "";
     
     public Connection conectar;
     

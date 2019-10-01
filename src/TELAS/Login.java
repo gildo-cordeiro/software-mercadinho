@@ -1,17 +1,28 @@
 package TELAS;
 
 import BD.Consultas;
+import CLASSES.Funcionario;
+import CLASSES.Venda;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
-
 public class Login extends javax.swing.JFrame {
 
    
     public Login() {
         initComponents();
         jTextField2.setVisible(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo2.png")));
     }
-
+    Date data = new Date();
+    //SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    //String dataFormat = formatar.format(data);
+    SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+    String dataFormatada = formatar.format(data);
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,9 +54,6 @@ public class Login extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Tunga", 1, 16)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
             }
@@ -53,19 +61,23 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 180, 30));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 140, -1, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 10, 20));
 
         jLabel6.setFont(new java.awt.Font("Tunga", 1, 14)); // NOI18N
-        jLabel6.setText("Esqueci minha");
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Esqueci senha");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel6MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 80, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 110, 20));
 
         jLabel5.setFont(new java.awt.Font("Tunga", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Mudar senha");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,7 +85,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel5MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 80, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 20));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/olho.png"))); // NOI18N
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -85,7 +97,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel7MouseReleased(evt);
             }
         });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 20, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 30, 30));
 
         jTextField2.setFont(new java.awt.Font("Tunga", 1, 16)); // NOI18N
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -112,29 +124,26 @@ public class Login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
         jButton1.setFont(new java.awt.Font("Tunga", 1, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Cancelar.png"))); // NOI18N
         jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 200, -1, 40));
 
         jButton2.setBackground(new java.awt.Color(0, 102, 0));
         jButton2.setFont(new java.awt.Font("Tunga", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Login.png"))); // NOI18N
         jButton2.setText("Entrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton2KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 90, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 110, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Logo 260x160.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 260, 210));
@@ -154,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 60, 30));
 
         Backgound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Background.png"))); // NOI18N
-        jPanel1.add(Backgound, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 649, 270));
+        jPanel1.add(Backgound, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,13 +183,26 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Consultas entra = new Consultas();
-        boolean Abrir = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
-        if (Abrir) {
-            //nova tela
-            JOptionPane.showMessageDialog(null, "Caixa");
-        }else if(Abrir==false){
-            JOptionPane.showMessageDialog(null, "Senha e/ou Login incorreto(s)");
+        if (jTextField1.getText().equals("") || jPasswordField1.getText().equals("")) {
+            
+            JOptionPane.showMessageDialog(null, "Existem campos fazios!");
+        } else {
+            Consultas entra = new Consultas();
+            boolean Entrar = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
+            if (Entrar) {
+                for (Funcionario atr : entra.VerificarGerente(jTextField1.getText())) {
+                    if (atr.isGer()) {
+                        this.dispose();
+                        new Inicial().setVisible(true);
+                    } else {
+                        this.dispose();
+                        new Inicial().setVisible(true);
+                       //JOptionPane.showMessageDialog(null, "funcionario");
+                    }
+                }
+            }else{
+                 JOptionPane.showMessageDialog(null, "Usuario não existe");
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -202,50 +224,34 @@ public class Login extends javax.swing.JFrame {
         jTextField2.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Consultas entra = new Consultas();
-            boolean Abrir = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
-            if (Abrir) {
-                //nova tela
-                JOptionPane.showMessageDialog(null, "Caixa");
-            }else if(Abrir==false){
-                JOptionPane.showMessageDialog(null, "Senha e/ou Login incorreto(s)");
-                jPasswordField1.setText("");
-            }
-        }
-    }//GEN-LAST:event_jButton2KeyPressed
-
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Consultas entra = new Consultas();
-            boolean Abrir = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
-            if (Abrir) {
-               //nova tela
-               JOptionPane.showMessageDialog(null, "Caixa");
-            }else if(Abrir==false){
-                JOptionPane.showMessageDialog(null, "Senha e/ou Login incorreto(s)");
-                jPasswordField1.setText("");
+            if (jTextField1.getText().equals("") || jPasswordField1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Existem campos fazios!");
+            } else {
+                Consultas entra = new Consultas();
+                boolean Entrar = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
+                if (Entrar) {
+                    for (Funcionario atr : entra.VerificarGerente(jTextField1.getText())) {
+                        if (atr.isGer()) {
+                        this.dispose();
+                        new Inicial().setVisible(true);
+                            //JOptionPane.showMessageDialog(null, "gerente");
+                        } else {
+                        this.dispose();
+                        new Inicial().setVisible(true);
+                           //JOptionPane.showMessageDialog(null, "funcionario");
+                        }
+                    }
+                }else{
+                     JOptionPane.showMessageDialog(null, "Usuario não existe");
+                }
             }
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Consultas entra = new Consultas();
-            boolean Abrir = entra.entrarLogin(jTextField1.getText(), jPasswordField1.getText());
-            if (Abrir) {
-                //nova tela
-                JOptionPane.showMessageDialog(null, "Caixa");
-            }else if(Abrir==false){
-                JOptionPane.showMessageDialog(null, "Senha e/ou Login incorreto(s)");
-                jPasswordField1.setText("");
-            } 
-        }
-    }//GEN-LAST:event_jTextField1KeyPressed
-
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        new Mudar_senha().setVisible(true);
+       new Mudar_senha().setVisible(true);
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
